@@ -1,6 +1,8 @@
 import 'package:chat_me/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_me/screens/login-screen.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -50,9 +52,9 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 SizedBox(
                   width: 10.0,
                 ),
-                Text(
-                  'ChatMe',
-                  style: TextStyle(
+                TypewriterAnimatedTextKit(
+                  text:['ChatMe'],
+                  textStyle: TextStyle(
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
                   ),
