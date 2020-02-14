@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:chat_me/screens/welcome_screen.dart';
+import 'package:chat_me/screens/registration_screen.dart';
+
 void main() => runApp(FlashChat());
 
 class FlashChat extends StatelessWidget {
