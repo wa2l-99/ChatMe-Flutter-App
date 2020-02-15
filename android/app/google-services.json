@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "640050969188",
+    "firebase_url": "https://chat-me-4fb1b.firebaseio.com",
+    "project_id": "chat-me-4fb1b",
+    "storage_bucket": "chat-me-4fb1b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:640050969188:android:9e580aa1cab322db743d71",
+        "android_client_info": {
+          "package_name": "com.Wael.chat_me"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "640050969188-2nt5kiauq2kp1hdchku02kepnvfc8opm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJtRrJ83d2LEkGrn0CtpSNjiO_cQqDbBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "640050969188-2nt5kiauq2kp1hdchku02kepnvfc8opm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
