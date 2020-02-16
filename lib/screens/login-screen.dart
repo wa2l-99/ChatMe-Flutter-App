@@ -28,11 +28,13 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Hero(
-                tag: 'logo',
-                child: Container(
-                  height: 200.0,
-                  child: Image.asset('images/6842577.png'),
+              Flexible(
+                child: Hero(
+                  tag: 'logo',
+                  child: Container(
+                    height: 200.0,
+                    child: Image.asset('images/6842577.png'),
+                  ),
                 ),
               ),
               SizedBox(
@@ -66,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 title: 'Log In',
                 coulour: Colors.lightBlueAccent,
                 onPressed: () async {
-                  setState(() { 
+                  setState(() {
                     showSpinner = true;
                   });
                   try {
