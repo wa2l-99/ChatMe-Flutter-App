@@ -33,6 +33,15 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
+  // A method that allow us to listen for Data that might be updated any moment in time
+  void messagesStream() async {
+    await for (var snapshot in _firestore.collection('messages').snapshots()) {
+      for (var message in snapshot.documents) {
+        print(message.data);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,8 +53,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 Icons.close,
               ),
               onPressed: () {
-                _auth.signOut();
-                Navigator.pop(context);
+                messagesStream();
               }),
         ],
         title: Text('Chat'),
@@ -74,8 +82,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       //messageText + loggedInUser
                       _firestore.collection('messages').add({
                         'text': messageText,
-                        'sender':loggedUser.email,
-                        
+                        'sender': loggedUser.email,
                       });
                     },
                     child: Text(
