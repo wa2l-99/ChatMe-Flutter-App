@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_me/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 final _firestore = Firestore.instance;
 FirebaseUser loggedUser;
@@ -40,11 +43,20 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: null,
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: Icon(Icons.close),
+              onPressed: () {
+                exit(1);
+              },
+            );
+          },
+        ),
         actions: <Widget>[
           IconButton(
               icon: Icon(
-                Icons.close,
+                Icons.exit_to_app,
               ),
               onPressed: () {
                 _auth.signOut();
@@ -80,6 +92,8 @@ class _ChatScreenState extends State<ChatScreen> {
                       _firestore.collection('messages').add({
                         'text': messageText,
                         'sender': loggedUser.email,
+                        'time':
+                            DateTime.now().millisecondsSinceEpoch.toString(),
                       });
                     },
                     child: Text(
@@ -101,7 +115,10 @@ class MessageStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-        stream: _firestore.collection('messages').snapshots(),
+        stream: _firestore
+            .collection('messages')
+            .orderBy('time', descending: false)
+            .snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Center(
@@ -136,10 +153,11 @@ class MessageStream extends StatelessWidget {
 }
 
 class MessageBubble extends StatelessWidget {
-  MessageBubble({this.sender, this.text, this.isMe});
+  MessageBubble({this.sender, this.text, this.isMe, this.date});
   final String sender;
   final String text;
   final bool isMe;
+  final DateTime date;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -166,13 +184,13 @@ class MessageBubble extends StatelessWidget {
                     bottomLeft: Radius.circular(30.0),
                     bottomRight: Radius.circular(30.0)),
             elevation: 5.0,
-            color: isMe ? Colors.lightBlueAccent : Colors.blueAccent,
+            color: isMe ? Colors.lightBlueAccent : Colors.blueGrey,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
               child: Text(
                 '$text',
                 style: TextStyle(
-                  color: isMe ? Colors.white : Colors.black54,
+                  color: isMe ? Colors.white : Colors.white,
                   fontSize: 15.0,
                 ),
               ),
