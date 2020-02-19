@@ -66,6 +66,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 24.0,
               ),
               RoundedButtom(
+                title: 'Register',
+                coulour: Colors.blueAccent,
                 onPressed: () async {
                   setState(() {
                     showSpinner = true;
@@ -83,8 +85,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     print(e);
                   }
                 },
-                title: 'Register',
-                coulour: Colors.blueAccent,
               ),
             ],
           ),
