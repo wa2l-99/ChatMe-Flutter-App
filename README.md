@@ -2,16 +2,30 @@
 
 A new Flutter project.
 
-## Getting Started
+#### A new Flutter project.
 
-This project is a starting point for a Flutter application.
+Flutter is Google's SDK for crafting beautiful, fast user experiences for
+mobile, web and desktop from a single codebase. Flutter works with existing
+code, is used by developers and organizations around the world, and is free
+and open source.
 
-A few resources to get you started if this is your first Flutter project:
+## Documentation
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+* [Install Flutter](https://flutter.dev/get-started/)
+* [Flutter documentation](https://flutter.dev/docs)
+* [Development wiki](https://github.com/flutter/flutter/wiki)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# ChatMe-Flutter-App
+## Cloning an Existing Repository
+
+* To colne the **ChatMe-Flutter-App**:
+  ```
+  $ git clone https://github.com/wa2l-99/ChatMe-Flutter-App
+  ```
+## Opening a project from existing source code
+
+* To open the **ChatMe-Flutter-App** project: 
+
+ 1. Click **File > Open** from the main IDE window.
+ 1. Browse to the **ChatMe-Flutter-App** directory.
+ 1. Click **Open**.
+
